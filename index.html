@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meine Discord-Webhook-Testseite</title>
+  </head>
+  <body>
+    <label for="message">Nachricht:</label>
+    <input type="text" id="message" name="message"><br><br>
+    <button onclick="sendText()">Senden</button>
+
+    <script>
+      function sendText() {
+        var message = document.getElementById("message").value;
+        var webhookUrl = "https://discord.com/api/webhooks/1075865743876431903/CZ7G6DzJp_Nr9cw_ucPi1BaZRBnaFQhJf61Sh6KQ0rN6U1r1v7vcBy4j5X6VRitkwfei";
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", webhookUrl, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        var data = JSON.stringify({"content": message});
+
+        xhr.send(data);
+      }
+    </script>
+  </body>
+</html>
